@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Mail, Zap, Quote } from 'lucide-react';
 import profileImage from '../assets/profile.jpg';
+import girijaProfile from '../assets/girija-profile.jpg';
 import htmlLogo from '../assets/html.png';
 import cssLogo from '../assets/css.png';
 import pythonLogo from '../assets/python.png';
@@ -107,21 +108,21 @@ export default function Hero({ setActiveTab }) {
             </button>
           </div>
           
-          <div className="w-full max-w-[250px] lg:max-w-sm h-px bg-gradient-to-r from-white/20 to-transparent my-1 hidden sm:block"></div>
+          <div className="w-full max-w-[250px] lg:max-w-sm h-px bg-gradient-to-r from-white/20 to-transparent my-1 sm:my-2"></div>
 
           {/* Glassmorphic Suggestion / Quote Box */}
-          <div className="relative bg-white/10 backdrop-blur-2xl border border-white/20 p-2 sm:p-3 lg:p-4 rounded-[24px] lg:rounded-[32px] max-w-[280px] lg:max-w-sm shadow-2xl hidden sm:block">
+          <div className="relative bg-white/10 backdrop-blur-2xl border border-white/20 p-2 sm:p-3 lg:p-4 rounded-[20px] sm:rounded-[24px] lg:rounded-[32px] max-w-[260px] sm:max-w-[280px] lg:max-w-sm shadow-2xl">
             <Quote size={16} className="text-white/60 mb-1" />
             <p className="text-gray-200 text-[9px] lg:text-xs leading-relaxed mb-1.5 lg:mb-2">
               "Darshan consistently delivers exceptional problem-solving frameworks, bridging analytics and AI-powered execution seamlessly."
             </p>
             <div className="flex items-center gap-2 lg:gap-3">
               <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full overflow-hidden border border-white/20 shadow-sm shrink-0">
-                <img src={profileImage} alt="Darshan" className="w-full h-full object-cover" />
+                <img src={girijaProfile} alt="Girija" className="w-full h-full object-cover" />
               </div>
               <div>
-                <h4 className="text-[10px] lg:text-xs font-bold text-white leading-tight">Darshan U.</h4>
-                <p className="text-[9px] lg:text-[10px] text-gray-400 leading-tight">Data Analyst</p>
+                <h4 className="text-[10px] lg:text-xs font-bold text-white leading-tight">Girija Manoharan</h4>
+                <p className="text-[9px] lg:text-[10px] text-gray-400 leading-tight">IT Architect senior @ FIS Global</p>
               </div>
             </div>
           </div>
