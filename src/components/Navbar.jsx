@@ -13,34 +13,34 @@ export default function Navbar({ activeTab, setActiveTab }) {
       </div>
 
       {/* Nav Menu Capsule */}
-      <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center space-x-1 rounded-full border border-white/20 bg-black/10 px-5 py-1.5 text-sm font-medium text-gray-300 shadow-[0_12px_35px_rgba(0,0,0,0.28)] backdrop-blur-xl md:flex">
+      <nav className="fixed bottom-6 left-1/2 z-50 flex w-[92%] max-w-sm -translate-x-1/2 items-center justify-between rounded-full border border-white/20 bg-black/40 px-2 py-2 text-xs font-medium text-gray-300 shadow-[0_12px_35px_rgba(0,0,0,0.5)] backdrop-blur-2xl sm:max-w-md sm:px-4 sm:text-sm md:absolute md:top-1/2 md:bottom-auto md:-translate-y-1/2 md:w-auto md:justify-center md:space-x-1 md:bg-black/10 md:py-1.5">
         <button 
           onClick={() => setActiveTab('home')} 
-          className={`rounded-full px-4 py-1.5 transition ${activeTab === 'home' ? 'bg-white/15 text-white shadow-inner shadow-white/10' : 'hover:bg-white/10 hover:text-white'}`}
+          className={`rounded-full px-2.5 py-2 sm:px-4 sm:py-1.5 transition ${activeTab === 'home' ? 'bg-white/15 text-white shadow-inner shadow-white/10' : 'hover:bg-white/10 hover:text-white'}`}
         >
           Home
         </button>
         <button 
           onClick={() => setActiveTab('about')} 
-          className={`rounded-full px-4 py-1.5 transition ${activeTab === 'about' ? 'bg-white/15 text-white shadow-inner shadow-white/10' : 'hover:bg-white/10 hover:text-white'}`}
+          className={`rounded-full px-2.5 py-2 sm:px-4 sm:py-1.5 transition ${activeTab === 'about' ? 'bg-white/15 text-white shadow-inner shadow-white/10' : 'hover:bg-white/10 hover:text-white'}`}
         >
           About
         </button>
         <button 
           onClick={() => setActiveTab('skills')} 
-          className={`rounded-full px-4 py-1.5 transition ${activeTab === 'skills' ? 'bg-white/15 text-white shadow-inner shadow-white/10' : 'hover:bg-white/10 hover:text-white'}`}
+          className={`rounded-full px-2.5 py-2 sm:px-4 sm:py-1.5 transition ${activeTab === 'skills' ? 'bg-white/15 text-white shadow-inner shadow-white/10' : 'hover:bg-white/10 hover:text-white'}`}
         >
           Skills
         </button>
         <button 
           onClick={() => setActiveTab('experience')} 
-          className={`rounded-full px-4 py-1.5 transition ${activeTab === 'experience' ? 'bg-white/15 text-white shadow-inner shadow-white/10' : 'hover:bg-white/10 hover:text-white'}`}
+          className={`rounded-full px-2.5 py-2 sm:px-4 sm:py-1.5 transition ${activeTab === 'experience' ? 'bg-white/15 text-white shadow-inner shadow-white/10' : 'hover:bg-white/10 hover:text-white'}`}
         >
           Experience
         </button>
         <button 
           onClick={() => setActiveTab('connect')} 
-          className={`rounded-full px-4 py-1.5 transition ${activeTab === 'connect' ? 'bg-white/15 text-white shadow-inner shadow-white/10' : 'hover:bg-white/10 hover:text-white'}`}
+          className={`rounded-full px-2.5 py-2 sm:px-4 sm:py-1.5 transition ${activeTab === 'connect' ? 'bg-white/15 text-white shadow-inner shadow-white/10' : 'hover:bg-white/10 hover:text-white'}`}
         >
           Connect
         </button>
