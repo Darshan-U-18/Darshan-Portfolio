@@ -2,60 +2,77 @@ import React from 'react';
 import { Download } from 'lucide-react';
 
 export default function Navbar({ activeTab, setActiveTab }) {
+  const navItems = [
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'connect', label: 'Connect' },
+  ];
+
+  const handleNavClick = (e, tabId) => {
+    e.preventDefault();
+    setActiveTab(tabId);
+    window.history.pushState(null, '', `#${tabId}`);
+
+    // Allow view to render if needed, then smooth-scroll into view
+    setTimeout(() => {
+      const element = document.getElementById(tabId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 50);
+  };
+
+  const resumeUrl = `${import.meta.env.BASE_URL}Darshan_U_Resume.pdf`;
+
   return (
-    <header className="absolute inset-x-0 top-0 z-40 mx-auto flex w-full items-center justify-between px-6 py-4 sm:px-12 sm:py-5">
+    <header className="absolute inset-x-0 top-0 z-40 mx-auto flex w-full items-center justify-between px-4 py-4 sm:px-8 lg:px-12 sm:py-5">
       {/* Logo */}
-      <div 
-        onClick={() => setActiveTab('home')} 
-        className="cursor-pointer text-2xl font-bold tracking-tight text-white lowercase"
+      <a
+        href="#home"
+        onClick={(e) => handleNavClick(e, 'home')}
+        className="cursor-pointer text-xl sm:text-2xl font-bold tracking-tight text-white lowercase transition hover:opacity-90"
       >
         darshan<span className="text-[#FF5722]">.</span>
-      </div>
+      </a>
 
       {/* Nav Menu Capsule */}
-      <nav className="fixed bottom-6 left-1/2 z-50 flex w-[92%] max-w-sm -translate-x-1/2 items-center justify-between rounded-full border border-white/20 bg-black/40 px-2 py-2 text-xs font-medium text-gray-300 shadow-[0_12px_35px_rgba(0,0,0,0.5)] backdrop-blur-2xl sm:max-w-md sm:px-4 sm:text-sm md:absolute md:top-1/2 md:bottom-auto md:-translate-y-1/2 md:w-auto md:justify-center md:space-x-1 md:bg-black/10 md:py-1.5">
-        <button 
-          onClick={() => setActiveTab('home')} 
-          className={`rounded-full px-2.5 py-2 sm:px-4 sm:py-1.5 transition ${activeTab === 'home' ? 'bg-white/15 text-white shadow-inner shadow-white/10' : 'hover:bg-white/10 hover:text-white'}`}
-        >
-          Home
-        </button>
-        <button 
-          onClick={() => setActiveTab('about')} 
-          className={`rounded-full px-2.5 py-2 sm:px-4 sm:py-1.5 transition ${activeTab === 'about' ? 'bg-white/15 text-white shadow-inner shadow-white/10' : 'hover:bg-white/10 hover:text-white'}`}
-        >
-          About
-        </button>
-        <button 
-          onClick={() => setActiveTab('skills')} 
-          className={`rounded-full px-2.5 py-2 sm:px-4 sm:py-1.5 transition ${activeTab === 'skills' ? 'bg-white/15 text-white shadow-inner shadow-white/10' : 'hover:bg-white/10 hover:text-white'}`}
-        >
-          Skills
-        </button>
-        <button 
-          onClick={() => setActiveTab('experience')} 
-          className={`rounded-full px-2.5 py-2 sm:px-4 sm:py-1.5 transition ${activeTab === 'experience' ? 'bg-white/15 text-white shadow-inner shadow-white/10' : 'hover:bg-white/10 hover:text-white'}`}
-        >
-          Experience
-        </button>
-        <button 
-          onClick={() => setActiveTab('connect')} 
-          className={`rounded-full px-2.5 py-2 sm:px-4 sm:py-1.5 transition ${activeTab === 'connect' ? 'bg-white/15 text-white shadow-inner shadow-white/10' : 'hover:bg-white/10 hover:text-white'}`}
-        >
-          Connect
-        </button>
+      <nav className="fixed bottom-6 left-1/2 z-50 flex w-[96%] max-w-md sm:max-w-lg md:max-w-none -translate-x-1/2 items-center justify-between sm:justify-center rounded-full border border-[#FF5722]/30 bg-[#120804]/95 px-1.5 py-1.5 text-[11px] font-medium text-gray-300 shadow-[0_12px_35px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-md sm:space-x-1 sm:px-3 sm:text-xs md:absolute md:top-1/2 md:bottom-auto md:-translate-y-1/2 md:w-auto md:bg-[#120804]/90 md:py-1.5 md:text-sm">
+        {navItems.map((item) => {
+          const isActive = activeTab === item.id;
+          return (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              onClick={(e) => handleNavClick(e, item.id)}
+              className={`rounded-full px-2.5 py-1.5 sm:px-4 sm:py-1.5 transition-all duration-200 ${
+                isActive
+                  ? 'bg-[#FF5722] text-white font-semibold shadow-[0_0_15px_rgba(255,87,34,0.45)]'
+                  : 'hover:bg-[#FF5722]/10 hover:text-white text-gray-300'
+              }`}
+            >
+              {item.label}
+            </a>
+          );
+        })}
       </nav>
 
-      {/* Download Resume CTA */}
-      <a 
-        href="/Darshan_U_Resume.pdf" 
+      {/* Download Resume / CV CTA */}
+      <a
+        href={resumeUrl}
         download="Darshan_U_Resume.pdf"
-        className="flex items-center space-x-2 rounded-full border border-white/20 bg-black/10 px-3 py-1.5 text-xs font-medium text-gray-200 shadow-[0_12px_35px_rgba(0,0,0,0.28)] backdrop-blur-xl transition hover:border-[#FF5722]/60 hover:bg-[#FF5722]/15 hover:text-white sm:px-4 sm:py-2"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center space-x-2 rounded-full border border-[#FF5722]/30 bg-[#0e0704] px-3 py-1.5 text-xs font-semibold text-gray-200 shadow-[0_8px_25px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.05)] transition-all hover:border-[#FF5722] hover:bg-[#FF5722]/15 hover:text-white hover:shadow-[0_0_15px_rgba(255,87,34,0.25)] sm:px-4 sm:py-2"
+        title="Download Darshan U CV / Resume"
       >
-        <span className="flex h-6 w-6 items-center justify-center rounded-lg border border-[#FF5722]/30 bg-[#FF5722]/20 text-[#FF5722]">
-          <Download size={14} />
+        <span className="flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-lg border border-[#FF5722]/40 bg-[#FF5722]/20 text-[#FF5722]">
+          <Download size={13} />
         </span>
-        <span>Download Resume</span>
+        <span className="hidden sm:inline">Download CV</span>
+        <span className="sm:hidden">CV</span>
       </a>
     </header>
   );

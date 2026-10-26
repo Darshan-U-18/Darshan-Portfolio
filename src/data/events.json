@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "IEEE Paper Publisher Participant",
+    "organization": "IEEE",
+    "date": "2023",
+    "type": "Publication",
+    "description": "Contributed programmatic system logic evaluations on experimental acoustic security shields to minimize operational risk indices.",
+    "location": "Online"
+  },
+  {
+    "id": 2,
+    "title": "Hackathon Winner",
+    "organization": "Tech University",
+    "date": "2023-11",
+    "type": "Hackathon",
+    "description": "Developed an AI-powered analytics dashboard in 48 hours.",
+    "location": "In-person"
+  }
+]

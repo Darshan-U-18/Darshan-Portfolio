@@ -1,60 +1,72 @@
 import React from 'react';
-import { Mail, Phone, Code2, Globe2, MessageSquareCode } from 'lucide-react';
+import { Mail, Phone, Code2, Globe2, MessageSquareCode, ArrowUpRight } from 'lucide-react';
+import { siteConfig } from '../config/site';
 
-export default function Connect() {
+export default function ConnectView() {
   const contactItems = [
     {
       label: 'Email',
       subtitle: 'Send a note',
-      href: 'mailto:darshanpec2006@gmail.com',
+      actionLabel: 'Compose Email',
+      href: `mailto:${siteConfig.email}`,
       icon: Mail,
-      accent: 'from-[#FF5722]/25 to-[#FF8A65]/20',
-      iconColor: 'text-[#FF5722]'
+      tag: 'COMM // MAIL',
+      accentColor: 'text-[#FF5722]'
     },
     {
       label: 'Call',
       subtitle: 'Talk directly',
+      actionLabel: 'Start Call',
       href: 'tel:+918610799313',
       icon: Phone,
-      accent: 'from-amber-400/20 to-orange-300/10',
-      iconColor: 'text-amber-400'
+      tag: 'COMM // VOICE',
+      accentColor: 'text-amber-400'
     },
     {
       label: 'LinkedIn',
       subtitle: 'Professional profile',
-      href: 'https://www.linkedin.com/in/darshan-u-0ab211434',
+      actionLabel: 'Connect on LinkedIn',
+      href: siteConfig.linkedinUrl,
       icon: Globe2,
-      accent: 'from-sky-500/20 to-cyan-400/10',
-      iconColor: 'text-sky-400'
+      tag: 'COMM // LINKEDIN',
+      accentColor: 'text-sky-400'
     },
     {
       label: 'GitHub',
-      subtitle: 'Code & projects',
-      href: 'https://github.com/Darshan-U-18',
+      subtitle: 'Code & repositories',
+      actionLabel: 'Browse GitHub',
+      href: siteConfig.githubUrl,
       icon: Code2,
-      accent: 'from-violet-500/20 to-fuchsia-400/10',
-      iconColor: 'text-violet-400'
+      tag: 'COMM // GITHUB',
+      accentColor: 'text-violet-400'
     }
   ];
 
   return (
-    <div className="relative w-full bg-[radial-gradient(circle_at_50%_20%,rgba(255,87,34,0.25)_0%,rgba(40,15,5,0.7)_45%,#030201_85%)] px-4 py-20 sm:px-8 lg:px-12">
-      <div className="absolute top-10 left-10 w-[500px] h-[500px] bg-[#FF5722]/15 rounded-full blur-[150px] pointer-events-none"></div>
+    <div className="hide-scrollbar relative flex h-full w-full flex-col justify-center px-4 text-white sm:px-8 lg:px-12 py-10 overflow-y-auto">
+      {/* Ambient Dot Matrix Background (Matching About, Skills & Projects) */}
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,87,34,0.06)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none opacity-60" />
+      
+      {/* Subtle Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#FF5722]/5 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto z-10 relative space-y-12">
-        <div className="text-center space-y-4 pt-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.06] backdrop-blur-xl border border-white/10 text-[#FF5722] text-xs font-bold tracking-widest uppercase shadow-lg">
-            <MessageSquareCode size={14} /> Connect
+      <div className="relative z-10 max-w-5xl mx-auto w-full space-y-10">
+        
+        {/* Header */}
+        <div className="text-center space-y-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#FF5722]/30 bg-[#0e0704] text-[#FF5722] text-xs font-semibold tracking-wider uppercase shadow-inner">
+            <MessageSquareCode size={14} /> Direct Communications
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
-            Let’s Connect <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF5722] to-amber-400">Beautifully</span>
-          </h2>
-          <p className="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto font-normal">
-            I’m open to product opportunities, collaborations, and meaningful tech conversations.
+          <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+            Let’s Connect <span className="text-[#FF5722]">Directly.</span>
+          </h1>
+          <p className="text-gray-300 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+            I’m actively open to data analytics, full-stack software development roles, internships, and engineering collaborations.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+        {/* Contact Cards Grid (No raw personal numbers, emails, or links displayed) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {contactItems.map((item) => {
             const Icon = item.icon;
 
@@ -64,22 +76,53 @@ export default function Connect() {
                 href={item.href}
                 target={item.href.startsWith('http') ? '_blank' : undefined}
                 rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
-                className="group relative overflow-hidden rounded-[32px] border border-white/20 bg-white/10 p-5 text-left shadow-2xl backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 hover:border-white/30 hover:bg-white/20 hover:shadow-[0_25px_60px_rgba(255,87,34,0.15)]"
+                className="group relative overflow-hidden rounded-[24px] border border-[#FF5722]/20 bg-gradient-to-br from-[#1c100a] via-[#160d07] to-[#110804] p-6 text-center shadow-[0_12px_35px_rgba(0,0,0,0.65),inset_0_1px_0_rgba(255,255,255,0.05)] transition-all duration-300 hover:border-[#FF5722]/60 hover:-translate-y-1 hover:shadow-[0_20px_45px_rgba(255,87,34,0.2)] flex flex-col justify-between items-center"
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${item.accent} opacity-80`} />
-                <div className="relative z-10 flex h-full flex-col items-center justify-center gap-4 text-center">
-                  <div className={`flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-black/20 ${item.iconColor} shadow-lg transition-transform duration-300 group-hover:scale-110`}>
-                    <Icon size={28} />
+                {/* Glowing Laser Top Edge */}
+                <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#FF5722]/70 to-transparent group-hover:via-[#FF5722] transition-all" />
+
+                {/* Left Energy Rail */}
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#FF5722] via-[#FF8A65]/40 to-transparent" />
+
+                {/* Ambient Hover Glow */}
+                <div className="absolute -right-12 -bottom-12 w-32 h-32 rounded-full bg-[#FF5722]/5 blur-2xl pointer-events-none group-hover:bg-[#FF5722]/15 transition-all duration-500" />
+
+                <div className="relative z-10 w-full flex items-center justify-between mb-4">
+                  <span className="font-mono text-[9px] tracking-widest font-semibold uppercase text-[#FF5722] bg-[#FF5722]/10 px-2 py-0.5 rounded border border-[#FF5722]/20">
+                    {item.tag}
+                  </span>
+                  <span className="text-gray-400 group-hover:text-[#FF5722] transition-colors">
+                    <ArrowUpRight size={14} />
+                  </span>
+                </div>
+
+                {/* Icon Container */}
+                <div className="relative z-10 my-2 flex h-16 w-16 items-center justify-center rounded-2xl border border-[#FF5722]/20 bg-[#0e0704] shadow-inner transition-transform duration-300 group-hover:scale-110 group-hover:border-[#FF5722]/50">
+                  <Icon size={26} className={item.accentColor} />
+                </div>
+
+                {/* Text Content */}
+                <div className="relative z-10 mt-3 space-y-1">
+                  <div className="text-xs font-bold uppercase tracking-wider text-gray-200 group-hover:text-[#FF5722] transition-colors">
+                    {item.label}
                   </div>
-                  <div>
-                    <div className="text-xs font-bold uppercase tracking-[0.2em] text-gray-200/80">{item.label}</div>
-                    <div className="mt-2 text-sm text-gray-200">{item.subtitle}</div>
+                  <div className="text-[11px] text-gray-400">
+                    {item.subtitle}
+                  </div>
+
+                  {/* Clean CTA Pill (No raw numbers/emails/links exposed) */}
+                  <div className="pt-3">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-[#FF5722]/30 bg-[#0e0704] px-3 py-1 text-[11px] font-semibold text-[#FF8A65] group-hover:border-[#FF5722] group-hover:bg-[#FF5722]/15 group-hover:text-white transition-all shadow-sm">
+                      <span>{item.actionLabel}</span>
+                      <ArrowUpRight size={11} className="text-[#FF5722] group-hover:text-white transition-colors" />
+                    </span>
                   </div>
                 </div>
               </a>
             );
           })}
         </div>
+
       </div>
     </div>
   );

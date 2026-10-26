@@ -7,6 +7,7 @@ import cssLogo from '../assets/css.png';
 import pythonLogo from '../assets/python.png';
 import mysqlLogo from '../assets/mysql.png';
 import jsLogo from '../assets/js.png';
+import { siteConfig } from '../config/site';
 
 const roles = ["Data Analyst", "AI - Powered FullStack Developer"];
 
@@ -40,14 +41,19 @@ export default function Hero({ setActiveTab }) {
     return () => clearTimeout(timer);
   }, [currentText, isDeleting, currentRoleIndex, typingSpeed]);
 
-  return (
-    <div className="relative flex h-full w-full flex-col lg:flex-row items-center justify-center bg-[#24130c] px-4 py-4 lg:px-20 overflow-hidden">
-      
-      {/* Background Ambient Glow */}
-      <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_top_left,rgba(255,87,34,0.15),transparent_50%)] pointer-events-none"></div>
-      <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(255,100,50,0.05),transparent_60%)] rounded-full pointer-events-none"></div>
+  const resumeUrl = `${import.meta.env.BASE_URL}Darshan_U_Resume.pdf`;
 
-      {/* Decorative Thunder Spikes (Like in the reference) */}
+  return (
+    <div className="relative flex h-full w-full flex-col lg:flex-row items-center justify-center bg-[#160d08] px-4 py-4 lg:px-20 overflow-hidden">
+      
+      {/* Ambient Dot Matrix Background (Matching About & Projects) */}
+      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,87,34,0.06)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none opacity-60" />
+
+      {/* Background Ambient Glow */}
+      <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_top_left,rgba(255,87,34,0.15),transparent_50%)] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-[radial-gradient(circle_at_center,rgba(255,100,50,0.05),transparent_60%)] rounded-full pointer-events-none" />
+
+      {/* Decorative Thunder Spikes */}
       <div className="absolute left-[-5%] top-[40%] text-[#FF5722]/80 opacity-60 pointer-events-none rotate-[20deg] scale-100 lg:scale-150 blur-[2px]">
         <svg width="200" height="300" viewBox="0 0 24 24" fill="url(#grad1)" stroke="none">
           <defs>
@@ -78,16 +84,15 @@ export default function Hero({ setActiveTab }) {
         <div className="space-y-1 sm:space-y-2 lg:space-y-3 z-20 flex flex-col justify-center">
           <div>
             <h2 className="text-sm sm:text-base lg:text-lg text-gray-300 font-medium mb-1">
-              Hey, I am <span className="text-[#FF5722]">Darshan</span>
+              Hey, I am <span className="text-[#FF5722]">{siteConfig.name.split(' ')[0]}</span>
             </h2>
-            {/* Replaced min-h with strict fixed heights (h-[...]) that perfectly fit 2 lines of text, completely eliminating the jumping layout effect */}
             <h1 className="text-xl sm:text-2xl lg:text-4xl xl:text-5xl font-bold tracking-tight mb-1 lg:mb-2 h-[60px] sm:h-[70px] lg:h-[96px] xl:h-[120px] flex items-start bg-gradient-to-r from-[#FF5722] to-[#ff9800] bg-clip-text text-transparent">
               <span className="typing-cursor leading-tight">
                 {currentText || '\u00A0'}
               </span>
             </h1>
             <p className="text-gray-400 text-[10px] sm:text-xs lg:text-sm max-w-sm leading-relaxed">
-              Transforming complex datasets into actionable insights and engineering robust, intelligent, end-to-end full-stack architectures.
+              {siteConfig.description}
             </p>
           </div>
 
@@ -99,25 +104,40 @@ export default function Hero({ setActiveTab }) {
             >
               Hire me
             </button>
+            <a
+              href={resumeUrl}
+              download="Darshan_U_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#0e0704] border border-[#FF5722]/40 text-[#FF8A65] hover:text-white hover:bg-[#FF5722]/15 hover:border-[#FF5722] font-semibold px-4 py-2 lg:px-6 lg:py-2.5 rounded-full transition-all duration-300 flex items-center gap-2 text-[10px] lg:text-xs shadow-[0_4px_15px_rgba(0,0,0,0.5)]"
+            >
+              Download CV
+            </a>
             <button
               onClick={() => setActiveTab('connect')}
-              className="w-8 h-8 lg:w-10 lg:h-10 bg-transparent border border-white/20 hover:bg-white/10 rounded-full flex items-center justify-center text-gray-300 transition-all duration-300"
+              className="w-8 h-8 lg:w-10 lg:h-10 bg-[#0e0704] border border-[#FF5722]/30 hover:border-[#FF5722] hover:bg-[#FF5722]/15 rounded-full flex items-center justify-center text-[#FF5722] transition-all duration-300 shadow-[0_4px_15px_rgba(0,0,0,0.5)]"
               title="Direct Message"
             >
               <Mail size={14} className="lg:scale-110" />
             </button>
           </div>
           
-          <div className="w-full max-w-[250px] lg:max-w-sm h-px bg-gradient-to-r from-white/20 to-transparent my-1 sm:my-2"></div>
+          <div className="w-full max-w-[250px] lg:max-w-sm h-px bg-gradient-to-r from-[#FF5722]/30 to-transparent my-1 sm:my-2" />
 
-          {/* Glassmorphic Suggestion / Quote Box */}
-          <div className="relative bg-white/10 backdrop-blur-2xl border border-white/20 p-2 sm:p-3 lg:p-4 rounded-[20px] sm:rounded-[24px] lg:rounded-[32px] max-w-[260px] sm:max-w-[280px] lg:max-w-sm shadow-2xl">
-            <Quote size={16} className="text-white/60 mb-1" />
-            <p className="text-gray-200 text-[9px] lg:text-xs leading-relaxed mb-1.5 lg:mb-2">
+          {/* Obsidian Carbon Quote Box (Matching About & Projects theme) */}
+          <div className="group relative overflow-hidden rounded-[24px] border border-[#FF5722]/20 bg-gradient-to-br from-[#1c100a] via-[#160d07] to-[#110804] p-3 sm:p-4 lg:p-5 max-w-[260px] sm:max-w-[280px] lg:max-w-sm shadow-[0_12px_35px_rgba(0,0,0,0.65),inset_0_1px_0_rgba(255,255,255,0.05)] transition-all duration-300 hover:border-[#FF5722]/60 hover:-translate-y-0.5">
+            {/* Top Laser Accent */}
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#FF5722]/70 to-transparent group-hover:via-[#FF5722] transition-all" />
+
+            {/* Left Rail */}
+            <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#FF5722] via-[#FF8A65]/40 to-transparent" />
+
+            <Quote size={16} className="text-[#FF5722] mb-1 opacity-80" />
+            <p className="text-gray-200 text-[9px] lg:text-xs leading-relaxed mb-2">
               "Darshan consistently delivers exceptional problem-solving frameworks, bridging analytics and AI-powered execution seamlessly."
             </p>
             <div className="flex items-center gap-2 lg:gap-3">
-              <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full overflow-hidden border border-white/20 shadow-sm shrink-0">
+              <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-full overflow-hidden border border-[#FF5722]/30 shadow-sm shrink-0">
                 <img src={girijaProfile} alt="Girija" className="w-full h-full object-cover" />
               </div>
               <div>
@@ -129,56 +149,54 @@ export default function Hero({ setActiveTab }) {
         </div>
 
         {/* Right Column: Character & Floating Tech */}
-        {/* Shrunk the document flow height so it pulls the bottom layout up, making room for the quote box */}
         <div className="relative flex justify-center items-center h-[160px] sm:h-[220px] lg:h-[400px] z-10 scale-[0.45] sm:scale-[0.6] lg:scale-95 origin-center lg:origin-right mt-1 lg:mt-0">
           
           {/* Orbit Rings */}
-          <div className="absolute w-[450px] h-[450px] border border-white/10 rounded-full pointer-events-none"></div>
-          <div className="absolute w-[300px] h-[300px] border border-white/10 rounded-full pointer-events-none"></div>
+          <div className="absolute w-[450px] h-[450px] border border-[#FF5722]/15 rounded-full pointer-events-none" />
+          <div className="absolute w-[300px] h-[300px] border border-[#FF5722]/10 rounded-full pointer-events-none" />
           
           {/* Rotating Tech Badges */}
-          {/* The parent container rotates clockwise */}
           <div className="absolute w-[450px] h-[450px] rounded-full animate-[spin_40s_linear_infinite] pointer-events-none z-30">
             
             {/* 1. HTML (0deg) */}
             <div className="absolute inset-0 flex items-center justify-center origin-center" style={{ transform: 'rotate(0deg) translate(0, -225px)' }}>
-              <div className="w-10 h-10 lg:w-12 lg:h-12 bg-white/5 backdrop-blur-sm rounded-xl p-2 shadow-[0_4px_15px_rgba(0,0,0,0.5)] border border-white/10 flex items-center justify-center animate-[spin_40s_linear_infinite_reverse]" style={{ transform: 'rotate(0deg)' }}>
+              <div className="w-10 h-10 lg:w-12 lg:h-12 bg-[#0e0704]/90 rounded-xl p-2 shadow-[0_4px_15px_rgba(0,0,0,0.7)] border border-[#FF5722]/30 flex items-center justify-center animate-[spin_40s_linear_infinite_reverse]" style={{ transform: 'rotate(0deg)' }}>
                 <img src={htmlLogo} alt="HTML" className="w-full h-full object-contain pointer-events-none" />
               </div>
             </div>
 
             {/* 2. JS (72deg) */}
             <div className="absolute inset-0 flex items-center justify-center origin-center" style={{ transform: 'rotate(72deg) translate(0, -225px)' }}>
-              <div className="w-10 h-10 lg:w-12 lg:h-12 bg-white/5 backdrop-blur-sm rounded-xl p-2 shadow-[0_4px_15px_rgba(0,0,0,0.5)] border border-white/10 flex items-center justify-center animate-[spin_40s_linear_infinite_reverse]" style={{ transform: 'rotate(-72deg)' }}>
+              <div className="w-10 h-10 lg:w-12 lg:h-12 bg-[#0e0704]/90 rounded-xl p-2 shadow-[0_4px_15px_rgba(0,0,0,0.7)] border border-[#FF5722]/30 flex items-center justify-center animate-[spin_40s_linear_infinite_reverse]" style={{ transform: 'rotate(-72deg)' }}>
                 <img src={jsLogo} alt="JS" className="w-full h-full object-contain pointer-events-none" />
               </div>
             </div>
 
             {/* 3. CSS (144deg) */}
             <div className="absolute inset-0 flex items-center justify-center origin-center" style={{ transform: 'rotate(144deg) translate(0, -225px)' }}>
-              <div className="w-10 h-10 lg:w-12 lg:h-12 bg-white/5 backdrop-blur-sm rounded-xl p-2 shadow-[0_4px_15px_rgba(0,0,0,0.5)] border border-white/10 flex items-center justify-center animate-[spin_40s_linear_infinite_reverse]" style={{ transform: 'rotate(-144deg)' }}>
+              <div className="w-10 h-10 lg:w-12 lg:h-12 bg-[#0e0704]/90 rounded-xl p-2 shadow-[0_4px_15px_rgba(0,0,0,0.7)] border border-[#FF5722]/30 flex items-center justify-center animate-[spin_40s_linear_infinite_reverse]" style={{ transform: 'rotate(-144deg)' }}>
                 <img src={cssLogo} alt="CSS" className="w-full h-full object-contain pointer-events-none" />
               </div>
             </div>
 
             {/* 4. MySQL (216deg) */}
             <div className="absolute inset-0 flex items-center justify-center origin-center" style={{ transform: 'rotate(216deg) translate(0, -225px)' }}>
-              <div className="w-10 h-10 lg:w-12 lg:h-12 bg-white/5 backdrop-blur-sm rounded-xl p-2 shadow-[0_4px_15px_rgba(0,0,0,0.5)] border border-white/10 flex items-center justify-center animate-[spin_40s_linear_infinite_reverse]" style={{ transform: 'rotate(-216deg)' }}>
+              <div className="w-10 h-10 lg:w-12 lg:h-12 bg-[#0e0704]/90 rounded-xl p-2 shadow-[0_4px_15px_rgba(0,0,0,0.7)] border border-[#FF5722]/30 flex items-center justify-center animate-[spin_40s_linear_infinite_reverse]" style={{ transform: 'rotate(-216deg)' }}>
                 <img src={mysqlLogo} alt="MySQL" className="w-full h-full object-contain pointer-events-none" />
               </div>
             </div>
             
             {/* 5. Python (288deg) */}
             <div className="absolute inset-0 flex items-center justify-center origin-center" style={{ transform: 'rotate(288deg) translate(0, -225px)' }}>
-              <div className="w-10 h-10 lg:w-12 lg:h-12 bg-white/5 backdrop-blur-sm rounded-xl p-2 shadow-[0_4px_15px_rgba(0,0,0,0.5)] border border-white/10 flex items-center justify-center animate-[spin_40s_linear_infinite_reverse]" style={{ transform: 'rotate(-288deg)' }}>
+              <div className="w-10 h-10 lg:w-12 lg:h-12 bg-[#0e0704]/90 rounded-xl p-2 shadow-[0_4px_15px_rgba(0,0,0,0.7)] border border-[#FF5722]/30 flex items-center justify-center animate-[spin_40s_linear_infinite_reverse]" style={{ transform: 'rotate(-288deg)' }}>
                 <img src={pythonLogo} alt="Python" className="w-full h-full object-contain pointer-events-none" />
               </div>
             </div>
             
           </div>
 
-          {/* Main Character Image - Circular */}
-          <div className="relative z-20 w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] lg:w-[350px] lg:h-[350px] rounded-full overflow-hidden border-[6px] lg:border-[8px] border-[#31180f] shadow-2xl drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] bg-[#1a0f08]">
+          {/* Main Character Image - Circular with Ember Ring */}
+          <div className="relative z-20 w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] lg:w-[350px] lg:h-[350px] rounded-full overflow-hidden border-[6px] lg:border-[8px] border-[#31180f] shadow-[0_20px_50px_rgba(0,0,0,0.7),0_0_30px_rgba(255,87,34,0.15)] bg-[#1a0f08]">
              <img 
                 src={profileImage} 
                 alt="Darshan U." 
