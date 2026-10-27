@@ -44,7 +44,7 @@ export default function Hero({ setActiveTab }) {
   const resumeUrl = `${import.meta.env.BASE_URL}Darshan_U_Resume.pdf`;
 
   return (
-    <div className="relative flex min-h-full w-full flex-col lg:flex-row items-center justify-center bg-[#160d08] px-4 sm:px-8 lg:px-16 py-4 sm:py-6 lg:py-4 pb-28 sm:pb-32 lg:pb-6 overflow-x-hidden">
+    <div className="relative flex h-full w-full flex-col md:flex-row items-center justify-center bg-[#160d08] px-4 sm:px-6 md:px-8 lg:px-16 py-4 md:py-0 pb-28 md:pb-16 lg:pb-0 overflow-y-auto md:overflow-hidden overflow-x-hidden hide-scrollbar">
       
       {/* Ambient Dot Matrix Background (Matching About & Projects) */}
       <div className="absolute inset-0 bg-[radial-gradient(rgba(255,87,34,0.06)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none opacity-60" />
@@ -78,15 +78,15 @@ export default function Hero({ setActiveTab }) {
         </svg>
       </div>
 
-      <div className="z-10 mx-auto grid w-full max-w-[1200px] grid-cols-1 items-center gap-6 sm:gap-8 md:grid-cols-2 relative h-full">
+      <div className="z-10 mx-auto grid w-full max-w-[1200px] grid-cols-1 items-center gap-4 sm:gap-6 md:gap-8 md:grid-cols-2 relative md:h-full">
         
         {/* Left Column: Text & Actions */}
-        <div className="space-y-3 sm:space-y-4 lg:space-y-4 z-20 flex flex-col justify-center text-left">
+        <div className="space-y-2.5 sm:space-y-3 lg:space-y-4 z-20 flex flex-col justify-center text-left">
           <div>
             <h2 className="text-sm sm:text-base lg:text-lg text-gray-300 font-medium mb-1">
               Hey, I am <span className="text-[#FF5722]">{siteConfig.name.split(' ')[0]}</span>
             </h2>
-            <h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tight mb-2 min-h-[58px] sm:min-h-[68px] md:min-h-[76px] lg:min-h-[96px] flex items-start bg-gradient-to-r from-[#FF5722] to-[#ff9800] bg-clip-text text-transparent">
+            <h1 className="text-2xl sm:text-3xl md:text-2xl lg:text-4xl xl:text-5xl font-bold tracking-tight mb-1.5 min-h-[50px] sm:min-h-[58px] md:min-h-[64px] lg:min-h-[88px] flex items-start bg-gradient-to-r from-[#FF5722] to-[#ff9800] bg-clip-text text-transparent">
               <span className="typing-cursor leading-tight">
                 {currentText || '\u00A0'}
               </span>
@@ -122,10 +122,10 @@ export default function Hero({ setActiveTab }) {
             </button>
           </div>
           
-          <div className="w-full max-w-md h-px bg-gradient-to-r from-[#FF5722]/30 to-transparent my-1 sm:my-2 hidden md:block" />
+          <div className="w-full max-w-md h-px bg-gradient-to-r from-[#FF5722]/30 to-transparent my-1 hidden md:block" />
 
           {/* Obsidian Carbon Quote Box (Shown on tablet & desktop in left column) */}
-          <div className="hidden md:block group relative overflow-hidden rounded-[24px] border border-[#FF5722]/20 bg-gradient-to-br from-[#1c100a] via-[#160d07] to-[#110804] p-4 sm:p-5 max-w-md shadow-[0_12px_35px_rgba(0,0,0,0.65),inset_0_1px_0_rgba(255,255,255,0.05)] transition-all duration-300 hover:border-[#FF5722]/60 hover:-translate-y-0.5">
+          <div className="hidden md:block group relative overflow-hidden rounded-[20px] sm:rounded-[24px] border border-[#FF5722]/20 bg-gradient-to-br from-[#1c100a] via-[#160d07] to-[#110804] p-3.5 lg:p-5 max-w-md shadow-[0_12px_35px_rgba(0,0,0,0.65),inset_0_1px_0_rgba(255,255,255,0.05)] transition-all duration-300 hover:border-[#FF5722]/60 hover:-translate-y-0.5">
             {/* Top Laser Accent */}
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#FF5722]/70 to-transparent group-hover:via-[#FF5722] transition-all" />
 
@@ -133,7 +133,7 @@ export default function Hero({ setActiveTab }) {
             <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#FF5722] via-[#FF8A65]/40 to-transparent" />
 
             <Quote size={18} className="text-[#FF5722] mb-1.5 opacity-80" />
-            <p className="text-gray-200 text-xs sm:text-xs lg:text-sm leading-relaxed mb-3">
+            <p className="text-gray-200 text-xs sm:text-xs lg:text-sm leading-relaxed mb-2.5">
               "Darshan consistently delivers exceptional problem-solving frameworks, bridging analytics and AI-powered execution seamlessly."
             </p>
             <div className="flex items-center gap-3">
@@ -209,7 +209,7 @@ export default function Hero({ setActiveTab }) {
             </div>
 
             {/* Main Character Image - Circular with Ember Ring (Big & prominent on all screens) */}
-            <div className="relative z-20 w-[210px] h-[210px] sm:w-[250px] sm:h-[250px] md:w-[280px] md:h-[280px] lg:w-[350px] lg:h-[350px] rounded-full overflow-hidden border-[5px] sm:border-[6px] lg:border-[8px] border-[#31180f] shadow-[0_20px_50px_rgba(0,0,0,0.7),0_0_30px_rgba(255,87,34,0.18)] bg-[#1a0f08]">
+            <div className="relative z-20 w-[210px] h-[210px] sm:w-[240px] sm:h-[240px] md:w-[260px] md:h-[260px] lg:w-[320px] lg:h-[320px] xl:w-[350px] xl:h-[350px] rounded-full overflow-hidden border-[5px] sm:border-[6px] lg:border-[8px] border-[#31180f] shadow-[0_20px_50px_rgba(0,0,0,0.7),0_0_30px_rgba(255,87,34,0.18)] bg-[#1a0f08]">
                <img 
                   src={profileImage} 
                   alt="Darshan U." 

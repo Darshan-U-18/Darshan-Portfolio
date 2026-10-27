@@ -2,20 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Globally hide scrollbars while preserving full scroll functionality */
+* {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
 .hide-scrollbar::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  height: 0;
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 
 .hide-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
 }
 
 .hide-scrollbar::-webkit-scrollbar-track,
 .hide-scrollbar::-webkit-scrollbar-thumb {
-  background: transparent;
+  background: transparent !important;
 }
 
 html,
@@ -48,19 +61,26 @@ body {
 
 @media (min-width: 640px) {
   :root {
-    --orbit-radius: 175px;
-    --orbit-size: 350px;
+    --orbit-radius: 165px;
+    --orbit-size: 330px;
   }
 }
 
 @media (min-width: 768px) {
   :root {
-    --orbit-radius: 190px;
-    --orbit-size: 380px;
+    --orbit-radius: 175px;
+    --orbit-size: 350px;
   }
 }
 
 @media (min-width: 1024px) {
+  :root {
+    --orbit-radius: 215px;
+    --orbit-size: 430px;
+  }
+}
+
+@media (min-width: 1280px) {
   :root {
     --orbit-radius: 225px;
     --orbit-size: 450px;

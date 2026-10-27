@@ -54,7 +54,7 @@ export default function App() {
         
         <div className="h-full w-full pb-0 pt-16 sm:pt-20 md:pt-24">
           <Suspense fallback={<div className="flex h-full items-center justify-center font-mono text-xs uppercase tracking-widest text-[#FF5722]">Synchronizing view...</div>}>
-            <div key={activeTab} className={`h-full w-full animate-fadeIn hide-scrollbar overflow-y-auto ${activeTab === 'home' ? 'lg:overflow-hidden' : ''}`}>
+            <div key={activeTab} className={`h-full w-full animate-fadeIn hide-scrollbar ${activeTab === 'home' ? 'overflow-y-auto md:overflow-hidden' : 'overflow-y-auto'}`}>
               {renderCurrentView()}
             </div>
           </Suspense>
