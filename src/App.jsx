@@ -45,16 +45,16 @@ export default function App() {
   };
 
   return (
-    <div className="h-dvh w-full bg-[#0c0603] p-2.5 text-white selection:bg-[#FF5722] selection:text-white sm:p-5 overflow-hidden">
-      <div className="relative h-full w-full overflow-hidden rounded-[28px] sm:rounded-[32px] border border-[#FF5722]/20 bg-[#160d08] shadow-[0_30px_90px_rgba(0,0,0,0.8),inset_0_1px_0_rgba(255,255,255,0.06)]">
+    <div className="h-dvh w-full bg-[#0c0603] p-1.5 sm:p-3 md:p-5 text-white selection:bg-[#FF5722] selection:text-white overflow-hidden">
+      <div className="relative h-full w-full overflow-hidden rounded-[20px] sm:rounded-[28px] md:rounded-[32px] border border-[#FF5722]/20 bg-[#160d08] shadow-[0_30px_90px_rgba(0,0,0,0.8),inset_0_1px_0_rgba(255,255,255,0.06)]">
         {/* Top Laser Accent on App Shell */}
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#FF5722]/70 to-transparent pointer-events-none z-50" />
         
         <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
         
-        <div className="h-full w-full pb-6 pt-20 sm:pt-24">
+        <div className="h-full w-full pb-0 pt-16 sm:pt-20 md:pt-24">
           <Suspense fallback={<div className="flex h-full items-center justify-center font-mono text-xs uppercase tracking-widest text-[#FF5722]">Synchronizing view...</div>}>
-            <div key={activeTab} className={`h-full w-full animate-fadeIn hide-scrollbar ${activeTab === 'home' ? 'overflow-hidden' : 'overflow-y-auto'}`}>
+            <div key={activeTab} className={`h-full w-full animate-fadeIn hide-scrollbar overflow-y-auto ${activeTab === 'home' ? 'lg:overflow-hidden' : ''}`}>
               {renderCurrentView()}
             </div>
           </Suspense>

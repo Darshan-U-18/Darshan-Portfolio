@@ -34,6 +34,39 @@ body {
   overflow-x: hidden;
 }
 
+:root {
+  --orbit-radius: 140px;
+  --orbit-size: 280px;
+}
+
+@media (min-width: 480px) {
+  :root {
+    --orbit-radius: 155px;
+    --orbit-size: 310px;
+  }
+}
+
+@media (min-width: 640px) {
+  :root {
+    --orbit-radius: 175px;
+    --orbit-size: 350px;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --orbit-radius: 190px;
+    --orbit-size: 380px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --orbit-radius: 225px;
+    --orbit-size: 450px;
+  }
+}
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }

@@ -110,18 +110,18 @@ export default function ExperienceView() {
   };
 
   return (
-    <section id="experience" className="hide-scrollbar relative w-full overflow-y-auto px-4 pb-16 pt-8 text-white sm:px-8 lg:px-12">
+    <section id="experience" className="hide-scrollbar relative w-full overflow-y-auto px-4 sm:px-8 lg:px-12 pt-6 sm:pt-8 pb-28 sm:pb-32 lg:pb-16 text-white">
       {/* Subtle Warm Cyber Dot Grid Background (Replaces Glass) */}
       <div className="absolute inset-0 bg-[radial-gradient(rgba(255,87,34,0.06)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none opacity-60" />
 
-      <div className="relative z-10 mx-auto max-w-5xl space-y-12">
+      <div className="relative z-10 mx-auto max-w-5xl space-y-10 sm:space-y-12">
         {/* Section Header */}
-        <div className="border-b border-[#FF5722]/15 pb-6">
+        <div className="border-b border-[#FF5722]/15 pb-5 sm:pb-6">
           <div className="flex items-center gap-2 text-[#FF5722] text-xs font-semibold uppercase tracking-wider mb-1">
             <Briefcase size={15} />
             <span>Career Milestones</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-white">
             Experience & Hackathons<span className="text-[#FF5722]">.</span>
           </h1>
           <p className="mt-2 text-sm text-gray-300 max-w-xl">

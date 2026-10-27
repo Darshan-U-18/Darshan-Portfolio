@@ -52,18 +52,18 @@ export default function AboutView() {
   ];
 
   return (
-    <div className="hide-scrollbar relative flex w-full overflow-y-auto px-4 pb-16 pt-8 text-white sm:px-8 lg:px-12">
+    <div className="hide-scrollbar relative flex w-full overflow-y-auto px-4 sm:px-8 lg:px-12 pt-6 sm:pt-8 pb-28 sm:pb-32 lg:pb-16 text-white">
       {/* Subtle Dot Matrix Background */}
       <div className="absolute inset-0 bg-[radial-gradient(rgba(255,87,34,0.06)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none opacity-60" />
 
-      <div className="relative z-10 mx-auto w-full max-w-5xl space-y-10">
+      <div className="relative z-10 mx-auto w-full max-w-5xl space-y-8 sm:space-y-10">
         {/* Section Header */}
-        <div className="border-b border-[#FF5722]/15 pb-6">
+        <div className="border-b border-[#FF5722]/15 pb-5 sm:pb-6">
           <div className="flex items-center gap-2 text-[#FF5722] text-xs font-semibold uppercase tracking-wider mb-1">
             <User size={15} />
             <span>Profile & Background</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-white">
             About Me<span className="text-[#FF5722]">.</span>
           </h1>
           <p className="mt-2 text-sm text-gray-300 max-w-xl">

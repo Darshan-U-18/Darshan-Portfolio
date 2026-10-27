@@ -276,7 +276,7 @@ export default function Projects() {
   const resumeUrl = `${import.meta.env.BASE_URL}Darshan_U_Resume.pdf`;
 
   return (
-    <section id="projects" className="hide-scrollbar relative w-full overflow-y-auto px-4 pb-16 pt-8 text-white sm:px-8 lg:px-12">
+    <section id="projects" className="hide-scrollbar relative w-full overflow-y-auto px-4 sm:px-8 lg:px-12 pt-6 sm:pt-8 pb-28 sm:pb-32 lg:pb-16 text-white">
       {/* Subtle Dot Matrix Background (Identical to About Section) */}
       <div className="absolute inset-0 bg-[radial-gradient(rgba(255,87,34,0.06)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none opacity-60" />
 
@@ -288,7 +288,7 @@ export default function Projects() {
               <FolderGit2 size={15} />
               <span>Automated GitHub Feed</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-white">
               Projects<span className="text-[#FF5722]">.</span>
             </h1>
             <p className="mt-2 text-sm text-gray-300 max-w-xl">

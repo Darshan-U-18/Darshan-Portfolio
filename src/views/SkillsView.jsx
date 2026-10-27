@@ -30,7 +30,7 @@ export default function SkillsView() {
   ];
 
   return (
-    <div className="hide-scrollbar relative flex h-full w-full flex-col px-4 text-white sm:px-8 lg:px-12 py-8 lg:py-12 overflow-y-auto">
+    <div className="hide-scrollbar relative flex min-h-full w-full flex-col px-4 sm:px-8 lg:px-12 pt-6 sm:pt-8 pb-28 sm:pb-32 lg:pb-12 text-white overflow-y-auto">
       {/* Ambient Dot Matrix Background (Matching About & Projects) */}
       <div className="absolute inset-0 bg-[radial-gradient(rgba(255,87,34,0.06)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none opacity-60" />
       
@@ -44,27 +44,27 @@ export default function SkillsView() {
         <div className="w-[2px] h-16 bg-[#FF5722]/30" />
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-5xl flex-1 flex flex-col justify-center">
+      <div className="relative z-10 mx-auto w-full max-w-5xl my-auto flex flex-col justify-center">
         
         {/* Header Section */}
-        <div className="text-center mb-8 lg:mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#FF5722]/30 bg-[#0e0704] text-[#FF5722] text-xs font-semibold tracking-wider uppercase mb-3">
+        <div className="text-center mb-6 sm:mb-8 lg:mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#FF5722]/30 bg-[#0e0704] text-[#FF5722] text-xs font-semibold tracking-wider uppercase mb-2 sm:mb-3">
             <Cpu size={14} /> Technical Arsenal
           </div>
-          <h1 className="text-3xl lg:text-5xl font-black tracking-tight text-white mb-3">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-white mb-2 sm:mb-3">
             What I <span className="text-[#FF5722]">Build With.</span>
           </h1>
-          <p className="text-sm lg:text-base text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xs sm:text-sm lg:text-base text-gray-300 max-w-2xl mx-auto leading-relaxed">
             I specialize in transforming complex data into actionable insights through robust analytics and engineering dynamic full-stack systems with modern frameworks.
           </p>
         </div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6 lg:pl-12">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 lg:pl-12">
           {skills.map((skill, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-[24px] border border-[#FF5722]/20 bg-gradient-to-br from-[#1c100a] via-[#160d07] to-[#110804] p-5 lg:p-7 shadow-[0_12px_35px_rgba(0,0,0,0.65),inset_0_1px_0_rgba(255,255,255,0.05)] transition-all duration-300 hover:border-[#FF5722]/60 hover:-translate-y-1.5 hover:shadow-[0_20px_45px_rgba(255,87,34,0.2)] flex flex-col items-center justify-center"
+              className="group relative overflow-hidden rounded-[20px] sm:rounded-[24px] border border-[#FF5722]/20 bg-gradient-to-br from-[#1c100a] via-[#160d07] to-[#110804] p-3.5 sm:p-5 lg:p-7 shadow-[0_12px_35px_rgba(0,0,0,0.65),inset_0_1px_0_rgba(255,255,255,0.05)] transition-all duration-300 hover:border-[#FF5722]/60 hover:-translate-y-1.5 hover:shadow-[0_20px_45px_rgba(255,87,34,0.2)] flex flex-col items-center justify-center"
             >
               {/* Glowing Top Laser Line */}
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#FF5722]/70 to-transparent group-hover:via-[#FF5722] transition-all" />
@@ -76,12 +76,12 @@ export default function SkillsView() {
               <div className="absolute -right-10 -bottom-10 w-28 h-28 rounded-full bg-[#FF5722]/5 blur-2xl pointer-events-none group-hover:bg-[#FF5722]/20 transition-all duration-500" />
 
               {/* Category Micro Tag */}
-              <span className="font-mono text-[9px] tracking-widest font-semibold uppercase text-[#FF5722]/80 bg-[#FF5722]/10 px-2 py-0.5 rounded border border-[#FF5722]/20 mb-3">
+              <span className="font-mono text-[9px] tracking-widest font-semibold uppercase text-[#FF5722]/80 bg-[#FF5722]/10 px-2 py-0.5 rounded border border-[#FF5722]/20 mb-2 sm:mb-3">
                 {skill.category}
               </span>
 
               {/* Icon Container */}
-              <div className="w-14 h-14 lg:w-16 lg:h-16 mb-3 flex items-center justify-center rounded-2xl border border-[#FF5722]/20 bg-[#0e0704] p-3 shadow-inner group-hover:border-[#FF5722]/50 group-hover:scale-110 transition-all duration-300">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 mb-2 sm:mb-3 flex items-center justify-center rounded-2xl border border-[#FF5722]/20 bg-[#0e0704] p-2.5 sm:p-3 shadow-inner group-hover:border-[#FF5722]/50 group-hover:scale-110 transition-all duration-300">
                 {skill.image && (
                   <img src={skill.image} alt={skill.name} className="w-full h-full object-contain drop-shadow" />
                 )}

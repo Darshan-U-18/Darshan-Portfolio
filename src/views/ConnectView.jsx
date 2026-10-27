@@ -43,30 +43,30 @@ export default function ConnectView() {
   ];
 
   return (
-    <div className="hide-scrollbar relative flex h-full w-full flex-col justify-center px-4 text-white sm:px-8 lg:px-12 py-10 overflow-y-auto">
+    <div className="hide-scrollbar relative flex min-h-full w-full flex-col px-4 sm:px-8 lg:px-12 pt-6 sm:pt-8 pb-28 sm:pb-32 lg:pb-12 text-white overflow-y-auto">
       {/* Ambient Dot Matrix Background (Matching About, Skills & Projects) */}
       <div className="absolute inset-0 bg-[radial-gradient(rgba(255,87,34,0.06)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none opacity-60" />
       
       {/* Subtle Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#FF5722]/5 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="relative z-10 max-w-5xl mx-auto w-full space-y-10">
+      <div className="relative z-10 max-w-5xl mx-auto w-full my-auto space-y-8 sm:space-y-10">
         
         {/* Header */}
-        <div className="text-center space-y-3">
+        <div className="text-center space-y-2.5 sm:space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#FF5722]/30 bg-[#0e0704] text-[#FF5722] text-xs font-semibold tracking-wider uppercase shadow-inner">
             <MessageSquareCode size={14} /> Direct Communications
           </div>
-          <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-tight">
             Let’s Connect <span className="text-[#FF5722]">Directly.</span>
           </h1>
-          <p className="text-gray-300 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+          <p className="text-gray-300 text-xs sm:text-sm md:text-base max-w-xl mx-auto leading-relaxed">
             I’m actively open to data analytics, full-stack software development roles, internships, and engineering collaborations.
           </p>
         </div>
 
         {/* Contact Cards Grid (No raw personal numbers, emails, or links displayed) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {contactItems.map((item) => {
             const Icon = item.icon;
 
@@ -76,7 +76,7 @@ export default function ConnectView() {
                 href={item.href}
                 target={item.href.startsWith('http') ? '_blank' : undefined}
                 rel={item.href.startsWith('http') ? 'noreferrer' : undefined}
-                className="group relative overflow-hidden rounded-[24px] border border-[#FF5722]/20 bg-gradient-to-br from-[#1c100a] via-[#160d07] to-[#110804] p-6 text-center shadow-[0_12px_35px_rgba(0,0,0,0.65),inset_0_1px_0_rgba(255,255,255,0.05)] transition-all duration-300 hover:border-[#FF5722]/60 hover:-translate-y-1 hover:shadow-[0_20px_45px_rgba(255,87,34,0.2)] flex flex-col justify-between items-center"
+                className="group relative overflow-hidden rounded-[20px] sm:rounded-[24px] border border-[#FF5722]/20 bg-gradient-to-br from-[#1c100a] via-[#160d07] to-[#110804] p-5 sm:p-6 text-center shadow-[0_12px_35px_rgba(0,0,0,0.65),inset_0_1px_0_rgba(255,255,255,0.05)] transition-all duration-300 hover:border-[#FF5722]/60 hover:-translate-y-1 hover:shadow-[0_20px_45px_rgba(255,87,34,0.2)] flex flex-col justify-between items-center"
               >
                 {/* Glowing Laser Top Edge */}
                 <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#FF5722]/70 to-transparent group-hover:via-[#FF5722] transition-all" />
@@ -97,7 +97,7 @@ export default function ConnectView() {
                 </div>
 
                 {/* Icon Container */}
-                <div className="relative z-10 my-2 flex h-16 w-16 items-center justify-center rounded-2xl border border-[#FF5722]/20 bg-[#0e0704] shadow-inner transition-transform duration-300 group-hover:scale-110 group-hover:border-[#FF5722]/50">
+                <div className="relative z-10 my-1.5 sm:my-2 flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl border border-[#FF5722]/20 bg-[#0e0704] shadow-inner transition-transform duration-300 group-hover:scale-110 group-hover:border-[#FF5722]/50">
                   <Icon size={26} className={item.accentColor} />
                 </div>
 
