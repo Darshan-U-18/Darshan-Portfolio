@@ -39,7 +39,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
       </a>
 
       {/* Nav Menu Capsule */}
-      <nav className="fixed bottom-4 sm:bottom-6 left-1/2 z-50 flex w-[calc(100%-20px)] max-w-sm sm:max-w-xl lg:max-w-none -translate-x-1/2 items-center justify-between sm:justify-center rounded-full border border-[#FF5722]/30 bg-[#120804]/95 px-1.5 py-1.5 text-[11px] font-medium text-gray-300 shadow-[0_12px_35px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-md overflow-x-auto hide-scrollbar sm:space-x-1 sm:px-3 sm:text-xs lg:absolute lg:top-1/2 lg:bottom-auto lg:-translate-y-1/2 lg:w-auto lg:bg-[#120804]/90 lg:py-1.5 lg:text-sm">
+      <nav className="fixed bottom-4 sm:bottom-6 left-1/2 z-50 flex w-max max-w-[calc(100%-16px)] sm:max-w-xl lg:max-w-none -translate-x-1/2 items-center justify-center gap-1 sm:gap-1.5 rounded-full border border-[#FF5722]/30 bg-[#120804]/95 px-2.5 sm:px-4 py-1.5 text-[10px] xs:text-[11px] font-medium text-gray-300 shadow-[0_12px_35px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-md overflow-x-auto hide-scrollbar sm:text-xs lg:absolute lg:top-1/2 lg:bottom-auto lg:-translate-y-1/2 lg:w-auto lg:bg-[#120804]/90 lg:py-1.5 lg:text-sm">
         {navItems.map((item) => {
           const isActive = activeTab === item.id;
           return (
@@ -47,7 +47,7 @@ export default function Navbar({ activeTab, setActiveTab }) {
               key={item.id}
               href={`#${item.id}`}
               onClick={(e) => handleNavClick(e, item.id)}
-              className={`shrink-0 rounded-full px-2.5 py-1 sm:px-3.5 sm:py-1.5 transition-all duration-200 ${
+              className={`shrink-0 rounded-full px-2 xs:px-2.5 sm:px-3.5 py-1 sm:py-1.5 transition-all duration-200 ${
                 isActive
                   ? 'bg-[#FF5722] text-white font-semibold shadow-[0_0_15px_rgba(255,87,34,0.45)]'
                   : 'hover:bg-[#FF5722]/10 hover:text-white text-gray-300'

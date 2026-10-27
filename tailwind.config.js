@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '375px',
+      },
       colors: {
         portfolioBg: '#120D0A',
         cardBg: '#1C1510',
