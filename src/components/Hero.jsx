@@ -44,7 +44,10 @@ export default function Hero({ setActiveTab }) {
   const resumeUrl = `${import.meta.env.BASE_URL}Darshan_U_Resume.pdf`;
 
   return (
-    <div className="relative flex h-full w-full flex-col md:flex-row items-center justify-center bg-[#160d08] px-4 sm:px-6 md:px-8 lg:px-16 py-4 md:py-0 pb-28 md:pb-16 lg:pb-0 overflow-y-auto md:overflow-hidden overflow-x-hidden hide-scrollbar">
+    <div 
+      id="home"
+      className="relative flex min-h-full md:h-full w-full flex-col md:flex-row items-center justify-start md:justify-center bg-[#160d08] px-4 sm:px-6 md:px-8 lg:px-16 pt-3 sm:pt-5 md:pt-0 pb-28 md:pb-16 lg:pb-0 overflow-y-auto md:overflow-hidden overflow-x-hidden hide-scrollbar"
+    >
       
       {/* Ambient Dot Matrix Background (Matching About & Projects) */}
       <div className="absolute inset-0 bg-[radial-gradient(rgba(255,87,34,0.06)_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none opacity-60" />
@@ -91,9 +94,12 @@ export default function Hero({ setActiveTab }) {
                 {currentText || '\u00A0'}
               </span>
             </h1>
-            <p className="text-gray-300 text-xs sm:text-sm lg:text-sm max-w-lg leading-relaxed">
-              {siteConfig.description}
-            </p>
+            {/* Job Description - scrollable only for mobile view with scrollbar hidden */}
+            <div className="max-h-24 sm:max-h-28 md:max-h-none overflow-y-auto md:overflow-visible hide-scrollbar pr-1">
+              <p className="text-gray-300 text-xs sm:text-sm lg:text-sm max-w-lg leading-relaxed">
+                {siteConfig.description}
+              </p>
+            </div>
           </div>
 
           {/* Action Buttons */}
